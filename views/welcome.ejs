@@ -1,0 +1,54 @@
+
+<% layout('layout/boiler_plate')%>
+<br>
+<h1 style="margin-left: 100px;">Welcome  <%=currentUser.user_type%> </h1>
+<br>
+<div class="text-center" style="align-items: center; justify-content: center; margin-left: 30%;">
+    <ul class="job">
+        <p>The <%=currentUser.user_type%>'s access includes:</p>
+        <% if (currentUser.user_type == "Manager"){ %>
+            <li class="job"> View inventory Details</li>
+        <li class="job">Review sales statistics</li>
+        <li class="job">Initiate Supplier Orders</li>
+        <li class="job">Adjust Item Prices</li>
+        
+        <% } %>
+        <% if (currentUser.user_type == "Clerk"){ %>
+            <li class="job">Process and Record Items from Customer's Cart</li>
+            <li class="job">Generate Receipt Upon Payment</li>
+        
+        
+        <% } %>
+        <% if (currentUser.user_type == "Staff"){ %>
+            <li class="job">Remove Damaged Items from Inventory</li>
+        <li class="job">Add Items Upon Supplier Delivery</li>
+        
+        <% } %>
+    </ul>
+    <style>
+    .job{
+        list-style: none;
+        margin-bottom: 15px;
+        padding: 10px;
+        width: 70%;
+        text-align: left;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #d4dee9;
+        color: #212529;
+        font-size: 16px;
+    }
+    
+    .job p {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    
+    .job:hover {
+        transform: translateY(-3px);
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    </style>
+    
+</div>
